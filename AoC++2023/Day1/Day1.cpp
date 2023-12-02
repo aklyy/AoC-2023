@@ -1,9 +1,10 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include "Day1.h"
 
-//part1
-/*int lookForNumbers(std::string line) {
+
+int lookForNumbersPart1(std::string line) {
 	int s{0};
 
 	for (int i = 0; i < line.length(); i++) {
@@ -27,7 +28,7 @@
 		}
 	}
 }
-*/
+
 
 std::string ReplaceAll(std::string original, std::string replaceThis, std::string replaceWith)
 {
@@ -41,7 +42,7 @@ std::string ReplaceAll(std::string original, std::string replaceThis, std::strin
 }
 
 
-int lookForNumbers(std::string line) {
+int lookForNumbersPart2(std::string line) {
 	line = ReplaceAll(line, "one", "on1e");
 	line = ReplaceAll(line, "two", "tw2o");
 	line = ReplaceAll(line, "three", "thre3e");
@@ -51,7 +52,6 @@ int lookForNumbers(std::string line) {
 	line = ReplaceAll(line, "seven", "sev7en");
 	line = ReplaceAll(line, "eight", "eig8ht");
 	line = ReplaceAll(line, "nine", "ni9ne");
-	std::cout << line << '\n';
 	int s{ 0 };
 
 	for (int i = 0; i < line.length(); i++) {
@@ -77,17 +77,28 @@ int lookForNumbers(std::string line) {
 }
 
 
-int main() {
+int day1() {
 	std::string line;
 	std::ifstream file("input.txt");
 	int counter{ 0 };
-	if (file.is_open()) {
-		while (std::getline(file, line)) {
-			std::cout << line << '\n';
-			counter += lookForNumbers(line);
-			std::cout << counter << '\n';
+	char part{};
+	std::cout << "Part 1/2? \n";
+	std::cin >> part;
+	switch (part) {
+	case '1':
+		if (file.is_open()) {
+			while (std::getline(file, line)) {
+				counter += lookForNumbersPart1(line);
+			}
+			file.close();
 		}
-		file.close();
+	case '2':
+		if (file.is_open()) {
+			while (std::getline(file, line)) {
+				counter += lookForNumbersPart2(line);
+			}
+			file.close();
+		}
 	}
-	return 0;
+	return counter;
 }
