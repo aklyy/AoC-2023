@@ -1,2 +1,2 @@
 #pragma once
-int day2();
+void day2();
