@@ -77,28 +77,26 @@ int lookForNumbersPart2(std::string line) {
 }
 
 
-int day1() {
+void day1() {
 	std::string line;
 	std::ifstream file("input.txt");
 	int counter{ 0 };
-	char part{};
-	std::cout << "Part 1/2? \n";
-	std::cin >> part;
-	switch (part) {
-	case '1':
-		if (file.is_open()) {
-			while (std::getline(file, line)) {
-				counter += lookForNumbersPart1(line);
-			}
-			file.close();
+	
+	if (file.is_open()) {
+		while (std::getline(file, line)) {
+			counter += lookForNumbersPart1(line);
 		}
-	case '2':
-		if (file.is_open()) {
-			while (std::getline(file, line)) {
-				counter += lookForNumbersPart2(line);
-			}
-			file.close();
-		}
+		std::cout << counter << '\n';
+		file.close();
 	}
-	return counter;
+
+	file.open("input.txt");
+	if (file.is_open()) {
+		counter = 0;
+		while (std::getline(file, line)) {
+			counter += lookForNumbersPart2(line);
+		}
+		std::cout << counter << '\n';
+		file.close();
+	}
 }
