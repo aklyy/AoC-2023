@@ -24,11 +24,11 @@
     <Text Include="input.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Day1.cpp">
-      <Filter>Source Files\Day1</Filter>
-    </ClCompile>
     <ClCompile Include="Day2.cpp">
       <Filter>Source Files\Day2</Filter>
+    </ClCompile>
+    <ClCompile Include="Day1\Day1.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

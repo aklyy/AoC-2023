@@ -130,7 +130,7 @@
     <Text Include="input.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Day1.cpp" />
+    <ClCompile Include="Day1\Day1.cpp" />
     <ClCompile Include="Day2.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
