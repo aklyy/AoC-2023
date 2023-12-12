@@ -9,9 +9,9 @@ int main() {
 	std::cin >> day;
 
 	switch (day) {
-	case '1':
+	case 1:
 		day1();
-	case '2':
+	case 2:
 		day2();
 	}
 	
